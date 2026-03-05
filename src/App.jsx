@@ -44,7 +44,7 @@ function App() {
     e.preventDefault()
 
     setItems(p => p.map(i => {
-      console.log(i.name)
+      if(!e.target[i.id]) return i
       return {
         ...i,
         amount: parseFloat(i.amount) + parseFloat(e.target[i.id].value || 0)
