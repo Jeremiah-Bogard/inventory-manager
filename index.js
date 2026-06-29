@@ -32,7 +32,7 @@ function loadShop() {
 
 	for (let i = 0; i < sortGrp.length; i++) {
 		let grpItems = data
-			.filter((obj) => obj.group === sortGrp[i] && obj.onHand < obj.min)
+			.filter((obj) => obj.group === sortGrp[i] && parseInt(obj.onHand) < parseInt(obj.min))
 			.sort((a, b) => a.name.localeCompare(b.name))
 
 		if (grpItems.length > 0) {
