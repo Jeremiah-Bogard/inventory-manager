@@ -244,6 +244,7 @@ function modalSubmit(e, opt, id) {
 	updateStore()
 	toggleModal()
 	changePage(currPage)
+	modalForm.reset()
 }
 
 function toggleModal(opt, id) {
