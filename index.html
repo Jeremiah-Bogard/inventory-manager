@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Manager</title>
+
+    <!-- Styles and JS -->
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./index.js" defer></script>
+</head>
+<body>
+    <!-- ==== Navigation  ==== -->
+    <nav>
+        <h1>Inventory Manager</h1>
+        <div id="navLinks">
+            <button class="navLink active" onclick="changePage(0)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#B7B7B7"><path d="M160-280v-480H80v-80h160v480h600v80H160Zm80 200q-33 0-56.5-23.5T160-160q0-33 23.5-56.5T240-240q33 0 56.5 23.5T320-160q0 33-23.5 56.5T240-80Zm40-320v-240h240v240H280Zm80-80h80v-80h-80v80Zm200 80v-240h240v240H560Zm80-80h80v-80h-80v80Zm63.5 376.5Q680-127 680-160t23.5-56.5Q727-240 760-240t56.5 23.5Q840-193 840-160t-23.5 56.5Q793-80 760-80t-56.5-23.5ZM360-480h80-80Zm280 0h80-80Z" /></svg>Shopping</button>
+            <button class="navLink" onclick="changePage(1)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#B7B7B7"><path d="m691-150 139-138-42-42-97 95-39-39-42 43 81 81ZM240-600h480v-80H240v80ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40ZM120-80v-680q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v267q-19-9-39-15t-41-9v-243H200v562h243q5 31 15.5 59T486-86l-6 6-60-60-60 60-60-60-60 60-60-60-60 60Zm120-200h203q3-21 9-41t15-39H240v80Zm0-160h284q38-37 88.5-58.5T720-520H240v80Zm-40 242v-562 562Z" /></svg>Work Order</button>
+            <button class="navLink" onclick="changePage(2)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#B7B7B7"><path d="m234-480-12-60q-12-5-22.5-10.5T178-564l-58 18-40-68 46-40q-2-13-2-26t2-26l-46-40 40-68 58 18q11-8 21.5-13.5T222-820l12-60h80l12 60q12 5 22.5 10.5T370-796l58-18 40 68-46 40q2 13 2 26t-2 26l46 40-40 68-58-18q-11 8-21.5 13.5T326-540l-12 60h-80Zm96.5-143.5Q354-647 354-680t-23.5-56.5Q307-760 274-760t-56.5 23.5Q194-713 194-680t23.5 56.5Q241-600 274-600t56.5-23.5ZM592-40l-18-84q-17-6-31.5-14.5T514-158l-80 26-56-96 64-56q-2-18-2-36t2-36l-64-56 56-96 80 26q14-11 28.5-19.5T574-516l18-84h112l18 84q17 6 31.5 14.5T782-482l80-26 56 96-64 56q2 18 2 36t-2 36l64 56-56 96-80-26q-14 11-28.5 19.5T722-124l-18 84H592Zm56-160q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Z" /></svg>Configuration</button>
+        </div>
+    </nav>
+
+    <!-- ==== Pages  ==== -->
+    <main>
+        <!-- ====  Shopping  ==== -->
+        <section class="page">
+            <div class="pageHeader">
+                <div class="pageTitle">
+                    <h2>Shopping</h2>
+                    <p>Gather the items you need</p>
+                </div>
+                <div class="pageActions">
+                    <button class="bttn bttn-primary" onclick="toggleModal('new')">New Item</button>
+                </div>
+            </div>
+            <div class="pageContent" id="shopList">
+                <div class="listCat">
+                    <div class="listCatHead">
+                        <h2>Modems</h2>
+                        <div class="legend">
+                            <p>Name</p>
+                            <p>Minimum</p>
+                            <p>On Hand</p>
+                            <p>Need</p>
+                        </div>
+                    </div>
+                    <div class="listItems">
+                        <div class="listItem">
+                            <p>XB8</p>
+                            <p>4</p>
+                            <p>2</p>
+                            <p>2</p>
+                            <button class="listItemBttn" onClick="alert('WIP')">Grab Item</button>
+                        </div>
+                        <div class="listItem">
+                            <p>XB7</p>
+                            <p>3</p>
+                            <p>2</p>
+                            <p>1</p>
+                            <button class="listItemBttn" onClick="alert('WIP')">Grab Item</button>
+                        </div>
+                        <div class="listItem">
+                            <p>XER10</p>
+                            <p>3</p>
+                            <p>0</p>
+                            <p>3</p>
+                            <button class="listItemBttn" onClick="alert('WIP')">Grab Item</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ==== Work Order  ==== -->
+        <section class="page">
+            <div class="pageHeader">
+                <div class="pageTitle">
+                    <h2>Work Order</h2>
+                    <p>Mark an Item as used</p>
+                </div>
+                <div class="pageActions">
+                    <button class="bttn bttn-primary" onclick="toggleModal('new')">New Item</button>
+                </div>
+            </div>
+            <div class="pageContent" id="workOrder"></div>
+        </section>
+
+        <!-- ==== Configuration  ==== -->
+        <section class="page">
+            <div class="pageHeader">
+                <div class="pageTitle">
+                    <h2>Configuration</h2>
+                    <p>Modify or delete items.</p>
+                </div>
+                <div class="pageActions">
+                    <button class="bttn bttn-primary" onclick="toggleModal('new')">New Item</button>
+                </div>
+            </div>
+            <div class="pageContent" id="config"></div>
+        </section>
+    </main>
+    
+    <!-- ====  Modal  ==== -->
+    <div id="modalWrapper" onclick="toggleModal()">
+        <div id="modal" onclick="event.stopPropagation()">
+
+            <div id="modalHeader">
+                <h1 id="modalTitle">Undefined</h1>
+                <button onclick="toggleModal()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#B7B7B7">
+                    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                </svg></button>
+            </div>
+
+            <form id="modalForm">
+
+                <!-- ====  New/Modify Item  ==== -->
+                <div class="modalPage">
+                    <label for="name">Item Name</label>
+                    <input type="text" name="name" id="name" placeholder="Cat 6 Cable">
+
+                    <label for="min">Minimum Threshold</label>
+                    <input type="number" placeholder="1" name="min" id="min" min="0">
+
+                    <label for="onHand">Currently on Hand</label>
+                    <input type="number" placeholder="0" name="onHand" id="onHand" min="0">
+
+                    <label for="custGroup">Group</label>
+                    <select name="group" id="group">
+                        <option value="undefined">Undefined</option>
+                    </select>
+                    <input type="text" placeholder="...or create a new one" name="custGroup" id="custGroup">
+                </div>
+
+                <!-- ====  Grab/Use Item  ==== -->
+                <div class="modalPage">
+                    <label for="amount">Amount</label>
+                    <input type="number" name="amount" id="amount" min="0" placeholder="1">
+                </div>
+
+                <button type="submit" id="modalBttn" class="bttn bttn-primary">Undefined</button>
+
+            </form>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,464 @@
+/* ====  Setup  ==== */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap");
+
+:root {
+	--bg: #0d1117;
+	--surface: #161b22;
+	--surface-2: #21262d;
+	--border: #30363d;
+	--accent: #f0a500;
+	--accent-dim: rgba(240, 165, 0, 0.12);
+	--accent-hover: #ffb922;
+	--text: #e6edf3;
+	--text-muted: #7d8590;
+	--text-on-accent: #0d1117;
+	--danger: #f85149;
+	--success: #3fb950;
+	--nav-h: 116px;
+	--radius: 10px;
+	--shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	scroll-behavior: smooth;
+	background-color: var(--bg);
+	font-family: "DM Sans", system-ui, sans-serif;
+	font-size: 15px;
+	color: var(--text);
+	-webkit-font-smoothing: antialiased;
+}
+
+/* ====  Navigation  ==== */
+nav {
+	background-color: var(--surface);
+	border-bottom: 1px solid var(--border);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: sticky;
+	top: 0;
+	z-index: 99;
+	height: var(--nav-h);
+	gap: 0;
+}
+
+nav h1 {
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	padding: 10px 0 8px;
+}
+
+#navLinks {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: stretch;
+	width: 100%;
+	border-top: 1px solid var(--border);
+}
+
+.navLink {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	border: none;
+	border-bottom: 2px solid transparent;
+	color: var(--text-muted);
+	padding: 8px 4px 6px;
+	gap: 4px;
+	cursor: pointer;
+	font-family: "DM Sans", sans-serif;
+	font-size: 11px;
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	transition:
+		color 140ms ease,
+		border-color 140ms ease;
+}
+
+.navLink svg {
+	width: 20px;
+	height: 20px;
+	fill: var(--text-muted);
+	transition: fill 140ms ease;
+}
+
+.navLink.active {
+	color: var(--accent);
+	border-bottom-color: var(--accent);
+}
+.navLink.active svg {
+	fill: var(--accent);
+}
+.navLink:hover:not(.active) {
+	color: var(--text);
+}
+.navLink:hover:not(.active) svg {
+	fill: var(--text);
+}
+
+/* ====  Generic Button  ==== */
+button {
+	cursor: pointer;
+}
+
+.bttn {
+	outline: none;
+	border: 1.5px solid transparent;
+	padding: 8px 16px;
+	border-radius: var(--radius);
+	font-family: "DM Sans", sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+	transition: all 140ms ease;
+}
+
+.bttn-primary {
+	background-color: var(--accent);
+	color: var(--text-on-accent);
+	border-color: var(--accent);
+}
+.bttn-primary:hover {
+	background-color: var(--accent-hover);
+	border-color: var(--accent-hover);
+}
+
+.bttn-secondary {
+	background-color: transparent;
+	border-color: var(--border);
+	color: var(--text);
+}
+.bttn-secondary:hover {
+	border-color: var(--accent);
+	color: var(--accent);
+}
+
+/* ====  Generic Page  ==== */
+main {
+	padding: 24px 16px 60px;
+	width: 100%;
+}
+
+.page {
+	margin: auto;
+	max-width: 600px;
+	display: none;
+}
+
+.pageHeader {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 4px;
+}
+
+.pageTitle h2 {
+	font-size: 22px;
+	font-weight: 700;
+	color: var(--text);
+}
+
+.pageTitle p {
+	font-size: 13px;
+	color: var(--text-muted);
+	margin-top: 2px;
+}
+
+.pageActions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding-top: 2px;
+}
+
+/* ====  List Cards  ==== */
+.listCat {
+	margin-top: 20px;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	background: var(--surface);
+	overflow: clip;
+}
+
+.listCatHead {
+	position: sticky;
+	top: var(--nav-h);
+	background-color: var(--surface-2);
+	border-bottom: 1px solid var(--border);
+	z-index: 10;
+}
+
+.listCatHead h2 {
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	padding: 10px 14px 0;
+}
+
+.legend {
+	padding: 6px 14px 8px;
+	display: grid;
+	grid-template-columns: 3fr 1fr 1fr 1fr;
+	text-align: center;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	column-gap: 10px;
+}
+
+.legend p:first-child {
+	text-align: left;
+}
+
+.listItems {
+	background-color: var(--surface);
+	border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.listItem:last-child {
+	border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.listItem {
+	padding: 12px 14px;
+	display: grid;
+	gap: 10px;
+	grid-template-columns: 3fr 1fr 1fr 1fr;
+	text-align: center;
+	align-items: center;
+	border-top: 1px solid var(--border);
+	transition: background 100ms ease;
+}
+
+.listItem:hover {
+	background: var(--surface-2);
+}
+
+.listItem p:first-child {
+	text-align: left;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.listItem p:not(:first-child) {
+	font-family: "DM Mono", monospace;
+	font-size: 13px;
+	color: var(--text-muted);
+}
+
+/* highlight the "Need" column in amber */
+#shopList .listItem p:nth-child(4) {
+	color: var(--accent);
+	font-weight: 500;
+}
+
+.listItemBttn {
+	grid-column: span 4;
+	outline: none;
+	background-color: transparent;
+	color: var(--text-muted);
+	border: 1px solid var(--border);
+	padding: 8px 12px;
+	font-family: "DM Sans", sans-serif;
+	font-size: 12px;
+	font-weight: 600;
+	border-radius: 7px;
+	transition: all 140ms ease;
+	margin-top: 2px;
+}
+
+.listItemBttn:hover {
+	border-color: var(--accent);
+	color: var(--accent);
+	background-color: var(--accent-dim);
+}
+
+/* ====  Empty State  ==== */
+.emptyList {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	padding: 64px 20px;
+	color: var(--text-muted);
+	font-size: 14px;
+}
+
+.emptyList img {
+	opacity: 0.35;
+	filter: invert(1);
+}
+
+/* ====  Config / Work Order grid  ==== */
+#config .legend,
+#config .listItem,
+#workOrder .legend,
+#workOrder .listItem {
+	grid-template-columns: 4fr 1fr 1fr;
+}
+
+/* ====  Modal  ==== */
+#modalWrapper {
+	width: 100dvw;
+	height: 100dvh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	background: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(6px);
+	display: none;
+	justify-content: center;
+	align-items: flex-end;
+	padding: 0;
+}
+
+/* Sheet slides up from bottom on mobile */
+#modal {
+	width: 100%;
+	max-width: 600px;
+	background-color: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 16px 16px 0 0;
+	box-shadow: var(--shadow);
+	padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+@media (min-width: 600px) {
+	#modalWrapper {
+		align-items: center;
+	}
+	#modal {
+		border-radius: 16px;
+		margin: 16px;
+	}
+}
+
+#modalHeader {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 18px 18px 14px;
+	border-bottom: 1px solid var(--border);
+}
+
+#modalHeader h1 {
+	font-size: 17px;
+	font-weight: 700;
+}
+
+#modalHeader button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	padding: 4px;
+	display: flex;
+	border-radius: 6px;
+	transition: background 120ms ease;
+}
+
+#modalHeader button svg {
+	fill: var(--text-muted);
+}
+#modalHeader button:hover {
+	background: var(--surface-2);
+}
+#modalHeader button:hover svg {
+	fill: var(--danger);
+}
+
+/* Modal pull indicator */
+#modal::before {
+	content: "";
+	display: block;
+	width: 36px;
+	height: 4px;
+	background: var(--border);
+	border-radius: 2px;
+	margin: 10px auto 0;
+}
+
+@media (min-width: 600px) {
+	#modal::before {
+		display: none;
+	}
+}
+
+/* ====  Modal Form  ==== */
+#modalForm {
+	padding: 18px;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.modalPage {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+label {
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	margin-bottom: -8px;
+}
+
+input,
+select {
+	width: 100%;
+	padding: 10px 12px;
+	background: var(--bg);
+	border: 1.5px solid var(--border);
+	border-radius: var(--radius);
+	color: var(--text);
+	font-family: "DM Sans", sans-serif;
+	font-size: 15px;
+	outline: none;
+	transition: border-color 140ms ease;
+}
+
+input:focus,
+select:focus {
+	border-color: var(--accent);
+}
+
+input::placeholder {
+	color: var(--text-muted);
+}
+
+select option {
+	background: var(--surface);
+}
+
+#modalBttn {
+	margin-top: 4px;
+	width: 100%;
+	padding: 12px;
+	font-size: 15px;
+}
