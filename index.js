@@ -1,8 +1,6 @@
 // ====  Data  ====
 let data = JSON.parse(localStorage.getItem("inventoryManager")) || []
-let groups = JSON.parse(localStorage.getItem("inventoryManager-groups")) || [
-	"Modems",
-]
+let groups = JSON.parse(localStorage.getItem("inventoryManager-groups")) || []
 
 let currPage = 1
 
