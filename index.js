@@ -21,7 +21,7 @@ function loadShop() {
 	let sortGrp = groups.sort((a, b) => a.localeCompare(b))
 	shopList.innerHTML = ""
 
-	if (data.filter((obj) => obj.onHand < obj.min).length <= 0) {
+	if (data.filter((obj) => parseInt(obj.onHand) < parseInt(obj.min)).length <= 0) {
 		shopList.innerHTML = `
             <div class='emptyList'>            
                 <img src='./assets/shopping.svg' width='100px'>
