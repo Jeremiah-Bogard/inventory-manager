@@ -339,8 +339,8 @@ function changePage(num) {
 		loadConfig()
 	}
 
+	if(num !== currPage) window.scrollTo({ top: 0, behavior: "smooth" })
 	currPage = num
-	window.scrollTo({ top: 0, behavior: "smooth" })
 }
 
 changePage(currPage)
